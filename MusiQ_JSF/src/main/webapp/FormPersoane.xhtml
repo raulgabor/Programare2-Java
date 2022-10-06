@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core">
+<body>
+<div style="width:100%;font-size:36px;line-height:48px;background-color:navy;color:white">Formular Persoane</div>
+	<h:form id="formPersoaneForm">
+		<h:panelGrid columns="2" id="p1" border="1">
+			<f:facet name="header">
+		<h:outputText value="Form Persoane"/>
+			</f:facet>
+			<h:selectOneMenu id="cboPersoane" value="#{formPersoane.idPersoana}">
+				<f:selectItems id="s1" var="item" value="#{formPersoane.persoane}" itemLabel="#{item.numePersoana}" itemValue="#{item.id}" />
+				<f:ajax render="persoana_id persoana_nume persoana_nationalitate"/>
+			</h:selectOneMenu>
+			<h:panelGrid border="1" columns="2" id="p2">
+				<h:commandButton id="cmdPrevious" value="Previous" actionListener="#{formPersoane.previousPersoana}"/>
+				<h:commandButton id="cmdNext" value="Next" actionListener="#{formPersoane.nextPersoana}"/>
+			</h:panelGrid>
+		<h:outputText value="Nume Persoana:"/>
+		<h:inputText id="persoana_nume" value="#{formPersoane.persoana.numePersoana}"/>
+		<h:outputText value="Id:"/>
+ 		<h:inputText id="persoana_id" value="#{formPersoane.persoana.id}"/>
+		<h:outputText value="Nationalitate:"/>
+		<h:inputText id="persoana_nationalitate" value="#{formPersoane.persoana.nationalitate}"/>
+		<h:panelGrid border="1" columns="2" id="p3">
+			<h:commandButton id="cmdAdaugare" value="Adauga" actionListener="#{formPersoane.adaugarePersoana}"/>
+			<h:commandButton id="cmdStergere" value="Sterge" actionListener="#{formPersoane.stergerePersoana}"/>
+		</h:panelGrid>	
+		<h:panelGrid border="1" columns="2" id="p4">
+			<h:commandButton id="cmdAbandon" value="Abandon" actionListener="#{formPersoane.abandonPersoana}"/>
+			<h:commandButton id="cmdSalvare" value="Salveaza" actionListener="#{formPersoane.salvarePersoana}"/>
+		</h:panelGrid>			
+ 		</h:panelGrid>
+	</h:form>
+</body>
+</html>
+

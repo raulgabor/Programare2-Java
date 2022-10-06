@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core">
+<body>
+<div style="width:100%;font-size:36px;line-height:48px;background-color:navy;color:white">Formular Albume</div>
+	<h:form id="formAlbumeForm">
+		<h:panelGrid columns="2" id="p1" border="1">
+			<f:facet name="header">
+		<h:outputText value="Form Albume"/>
+			</f:facet>
+			<h:selectOneMenu id="cboAlbume" value="#{formAlbume.idAlbum}">
+				<f:selectItems id="s1" var="item" value="#{formAlbume.albume}" itemLabel="#{item.numeAlbum}" itemValue="#{item.id}" />
+				<f:ajax render="album_nume album_id album_artist album_an album_totalMin album_nrMel"/>
+			</h:selectOneMenu>
+			<h:panelGrid border="1" columns="2" id="p2">
+				<h:commandButton id="cmdPrevious" value="Previous" actionListener="#{formAlbume.previousAlbum}"/>
+				<h:commandButton id="cmdNext" value="Next" actionListener="#{formAlbume.nextAlbum}"/>
+			</h:panelGrid>
+		<h:outputText value="Nume Album:"/>
+		<h:inputText id="album_nume" value="#{formAlbume.album.numeAlbum}"/>
+		<h:outputText value="Id:"/>
+ 		<h:inputText id="album_id" value="#{formAlbume.album.id}"/>
+ 		<h:outputText value="Artist:"/>
+		<h:inputText id="album_artist" value="#{formAlbume.album.artist.numeScena}"/>
+ 		<h:outputText value="An lansare:"/>
+		<h:inputText id="album_an" value="#{formAlbume.album.anLansare}"/>
+		<h:panelGrid border="1" columns="2" id="p3">
+			<h:commandButton id="cmdAdaugare" value="Adauga" actionListener="#{formAlbume.adaugareAlbum}"/>
+			<h:commandButton id="cmdStergere" value="Sterge" actionListener="#{formAlbume.stergereAlbum}"/>
+		</h:panelGrid>	
+		<h:panelGrid border="1" columns="2" id="p4">
+			<h:commandButton id="cmdAbandon" value="Abandon" actionListener="#{formAlbume.abandonAlbum}"/>
+			<h:commandButton id="cmdSalvare" value="Salveaza" actionListener="#{formAlbume.salvareAlbum}"/>
+		</h:panelGrid>			
+ 		</h:panelGrid>
+ 		<h:panelGrid>
+ 		<h:outputText id="album_totalMin" value="Totalul melodiilor de pe album este de #{formAlbume.album.totalMinAlbum} minute."/>
+ 		<h:outputText id="album_nrMel" value="Numarul melodiilor de pe album este de #{formAlbume.album.numarMelodii} melodii."/>
+ 		</h:panelGrid>
+	</h:form>
+</body>
+</html>
+

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core">
+<body>
+<div style="width:100%;font-size:36px;line-height:48px;background-color:navy;color:white">Formular Utilizatori</div>
+	<h:form id="formUtilizatoriForm">
+		<h:panelGrid columns="2" id="p1" border="1">
+			<f:facet name="header">
+		<h:outputText value="Form Utilizatori"/>
+			</f:facet>
+			<h:selectOneMenu id="cboUtilizatori" value="#{formUtilizatori.idUtilizator}">
+				<f:selectItems id="s1" var="item" value="#{formUtilizatori.utilizatori}" itemLabel="#{item.nickname}" itemValue="#{item.id}" />
+				<f:ajax render="utilizator_id utilizator_nickname utilizator_nume utilizator_nationalitate"/>
+			</h:selectOneMenu>
+			<h:panelGrid border="1" columns="2" id="p2">
+				<h:commandButton id="cmdPrevious" value="Previous" actionListener="#{formUtilizatori.previousUtilizator}"/>
+				<h:commandButton id="cmdNext" value="Next" actionListener="#{formUtilizatori.nextUtilizator}"/>
+			</h:panelGrid>
+		<h:outputText value="Nume Persoana:"/>
+		<h:inputText id="utilizator_nume" value="#{formUtilizatori.utilizator.numePersoana}"/>
+		<h:outputText value="Nickname:"/>
+		<h:inputText id="utilizator_nickname" value="#{formUtilizatori.utilizator.nickname}"/>
+		<h:outputText value="Id:"/>
+ 		<h:inputText id="utilizator_id" value="#{formUtilizatori.utilizator.id}"/>
+		<h:outputText value="Nationalitate:"/>
+		<h:inputText id="utilizator_nationalitate" value="#{formUtilizatori.utilizator.nationalitate}"/>
+		<h:panelGrid border="1" columns="2" id="p3">
+			<h:commandButton id="cmdAdaugare" value="Adauga" actionListener="#{formUtilizatori.adaugareUtilizator}"/>
+			<h:commandButton id="cmdStergere" value="Sterge" actionListener="#{formUtilizatori.stergereUtilizator}"/>
+		</h:panelGrid>	
+		<h:panelGrid border="1" columns="2" id="p4">
+			<h:commandButton id="cmdAbandon" value="Abandon" actionListener="#{formUtilizatori.abandonUtilizator}"/>
+			<h:commandButton id="cmdSalvare" value="Salveaza" actionListener="#{formUtilizatori.salvareUtilizator}"/>
+		</h:panelGrid>			
+ 		</h:panelGrid>
+	</h:form>
+</body>
+</html>
+
+

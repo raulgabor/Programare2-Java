@@ -1,0 +1,50 @@
+//private DataModel<Melodie> melodiiDataModel;
+//private List<Melodie> melodii = new ArrayList<Melodie>();
+	
+/*
+	 * public DataModel<Melodie> getMelodiiDataModel() { melodiiDataModel = new
+	 * ListDataModel<Melodie>(this.album.getMelodii()); return melodiiDataModel; }
+	 * 
+	 * public List<Melodie> getMelodii() { return melodii; }
+	 * 
+	 * public Integer getIdMeldoie() { return
+	 * this.melodiiDataModel.getRowData().getId(); }
+	 * 
+	 * public void setIdMelodie(Integer id) { Integer idx = this.melodii.indexOf(new
+	 * Melodie(id, null, null, null, null)); Melodie melodie =
+	 * this.melodii.get(idx);
+	 * this.melodiiDataModel.getRowData().setId(melodie.getId());
+	 * this.melodiiDataModel.getRowData().setNumeMelodie(melodie.getNumeMelodie());
+	 * this.melodiiDataModel.getRowData().setAlbum(melodie.getAlbum());
+	 * this.melodiiDataModel.getRowData().setGenMelodie(melodie.getGenMelodie());
+	 * this.melodiiDataModel.getRowData().setDurataMin(melodie.getDurataMin()); }
+	 */
+	 
+/*
+	 * private void initModelMelodii() { this.melodii =
+	 * em.createQuery("SELECT m FROM Melodie m", Melodie.class).getResultList();
+	 * if(this.melodii != null && !this.melodii.isEmpty())
+	 * Collections.sort(this.melodii, (m1, m2) -> m1.getId().compareTo(m2.getId()));
+	 * }
+	 */
+	 
+<!--<h:dataTable id = "melodiiGrid" border="1" value="#{formAlbume.melodiiDataModel}" var="melodie">
+		<h:column>
+			<f:facet name="header"><h:outputText value="Id"/></f:facet>
+			<h:outputText id="id" value="#{melodie.id}"/>
+		</h:column>
+		<h:column>
+			<f:facet name="header"> <h:outputText value="Nume Melodie"/></f:facet>
+				<h:selectOneMenu id="cboMelodie" value="#{formAlbume.idMelodie}"> 
+					<f:selectItems value="#{formAlbume.melodii}" var="item" itemValue="#{item.id}" itemLabel="#{item.numeMelodie}"/>
+				</h:selectOneMenu>
+		</h:column>
+		<h:column>
+			<f:facet name="header"><h:outputText value="Gen Melodie"/></f:facet>
+			<h:outputText id="album_genMelodie" value="#{melodie.gen}"/>
+		</h:column>
+		<h:column>
+			<f:facet name="header"><h:outputText value="Durata in minute"/></f:facet>
+			<h:outputText id="album_durataInMinMelodie" value="#{melodie.durataMin}"/>
+		</h:column>
+	</h:dataTable>-->

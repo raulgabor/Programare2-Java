@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core">
+<body>
+<div style="width:100%;font-size:36px;line-height:48px;background-color:navy;color:white">Formular Melodii</div>
+	<h:form id="formMelodiiForm">
+		<h:panelGrid columns="2" id="p1" border="1">
+			<f:facet name="header">
+		<h:outputText value="Form Melodii"/>
+			</f:facet>
+			<h:selectOneMenu id="cboMelodii" value="#{formMelodii.idMelodie}">
+				<f:selectItems id="s1" var="item" value="#{formMelodii.melodii}" itemLabel="#{item.numeMelodie}" itemValue="#{item.id}" />
+				<f:ajax render="melodie_id melodie_nume melodie_album melodie_gen melodie_durata"/>
+			</h:selectOneMenu>
+			<h:panelGrid border="1" columns="2" id="p2">
+				<h:commandButton id="cmdPrevious" value="Previous" actionListener="#{formMelodii.previousMelodie}"/>
+				<h:commandButton id="cmdNext" value="Next" actionListener="#{formMelodii.nextMelodie}"/>
+			</h:panelGrid>
+		<h:outputText value="Nume Melodie:"/>
+		<h:inputText id="melodie_nume" value="#{formMelodii.melodie.numeMelodie}"/>
+		<h:outputText value="Id:"/>
+ 		<h:inputText id="melodie_id" value="#{formMelodii.melodie.id}"/>
+ 		<h:outputText value="Album:"/>
+		<h:inputText id="melodie_album" value="#{formMelodii.melodie.album.numeAlbum}"/>
+ 		<h:outputText value="Gen:"/>
+		<h:inputText id="melodie_gen" value="#{formMelodii.melodie.genMelodie}"/>
+		<h:outputText value="Durata in minute:"/>
+		<h:inputText id="melodie_durata" value="#{formMelodii.melodie.durataMin}"/>
+		<h:panelGrid border="1" columns="2" id="p3">
+			<h:commandButton id="cmdAdaugare" value="Adauga" actionListener="#{formMelodii.adaugareMelodie}"/>
+			<h:commandButton id="cmdStergere" value="Sterge" actionListener="#{formMelodii.stergereMelodie}"/>
+		</h:panelGrid>	
+		<h:panelGrid border="1" columns="2" id="p4">
+			<h:commandButton id="cmdAbandon" value="Abandon" actionListener="#{formMelodii.abandonMelodie}"/>
+			<h:commandButton id="cmdSalvare" value="Salveaza" actionListener="#{formMelodii.salvareMelodie}"/>
+		</h:panelGrid>			
+ 		</h:panelGrid>
+	</h:form>
+</body>
+</html>
+
